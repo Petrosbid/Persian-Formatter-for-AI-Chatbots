@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "تنظیم خودکار راست‌چین برای فارسی در چت‌بات‌ها",
+  "version": "1.1",
+  "description": "راست‌چین کردن متن فارسی با فونت و اندازه دلخواه در چت‌بات‌های AI",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://chat.openai.com/*",
+    "https://claude.ai/*",
+    "https://github.com/copilot/*",
+    "https://gemini.google.com/*",
+    "https://chat.deepseek.com/*",
+    "https://chatgpt.com/*",
+    "https://poe.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.openai.com/*",
+        "https://claude.ai/*",
+        "https://github.com/copilot/*",
+        "https://gemini.google.com/*",
+        "https://chat.deepseek.com/*", 
+        "https://chatgpt.com/*",
+        "https://poe.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "تنظیمات فارسی‌ساز"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["vazir-font/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
