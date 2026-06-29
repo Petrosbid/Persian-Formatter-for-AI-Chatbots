@@ -1,28 +1,29 @@
 {
   "manifest_version": 3,
-  "name": "تنظیم خودکار راست‌چین برای فارسی در چت‌بات‌ها",
-  "version": "1.1",
-  "description": "راست‌چین کردن متن فارسی با فونت و اندازه دلخواه در چت‌بات‌های AI",
-  "permissions": ["storage", "activeTab", "scripting"],
+  "name": "Persian AI Chat Toolkit",
+  "version": "3.0.0",
+  "description": "Premium Persian productivity toolkit for AI chat platforms: smart RTL input, prompt vault, LaTeX converter, and advanced multi-format copy.",
+  "permissions": ["storage", "activeTab", "scripting", "clipboardWrite"],
   "host_permissions": [
     "https://chat.openai.com/*",
-    "https://claude.ai/*",
-    "https://github.com/copilot/*",
-    "https://gemini.google.com/*",
-    "https://chat.deepseek.com/*",
     "https://chatgpt.com/*",
-    "https://poe.com/*"
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://poe.com/*",
+    "https://chat.deepseek.com/*",
+    "https://github.com/copilot/*"
   ],
+  "optional_host_permissions": ["<all_urls>"],
   "content_scripts": [
     {
       "matches": [
         "https://chat.openai.com/*",
-        "https://claude.ai/*",
-        "https://github.com/copilot/*",
-        "https://gemini.google.com/*",
-        "https://chat.deepseek.com/*", 
         "https://chatgpt.com/*",
-        "https://poe.com/*"
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://poe.com/*",
+        "https://chat.deepseek.com/*",
+        "https://github.com/copilot/*"
       ],
       "js": ["content.js"],
       "run_at": "document_end"
@@ -30,7 +31,7 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "تنظیمات فارسی‌ساز"
+    "default_title": "Persian AI Chat Toolkit"
   },
   "web_accessible_resources": [
     {

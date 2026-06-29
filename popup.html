@@ -1,93 +1,417 @@
-<!DOCTYPE html>
-<html dir="ltr">
+<!doctype html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Persian AI Chat Toolkit</title>
+        <link rel="stylesheet" href="popup.css" />
+    </head>
+    <body>
+        <div class="app-shell">
+            <header class="topbar">
+                <div class="brand">
+                    <div class="brand-icon" aria-hidden="true">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M12 2l7 4v6c0 5-3.5 8.74-7 10-3.5-1.26-7-5-7-10V6l7-4z"
+                            ></path>
+                            <path d="M8 12h8"></path>
+                            <path d="M12 8v8"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1>Persian AI Toolkit</h1>
+                        <p>Premium formatter + productivity suite</p>
+                    </div>
+                </div>
+                <div class="active-site" id="activeSiteLabel">
+                    Detecting site…
+                </div>
+            </header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تنظیمات اکستنشن فارسی‌ساز</title>
-    <link rel="stylesheet" href="popup.css">
-</head>
+            <section class="dynamic-site-card hidden" id="dynamicSiteCard">
+                <div class="dynamic-site-content">
+                    <h2>This chatbot is not yet supported</h2>
+                    <p>
+                        Grant access once to enable all features instantly on
+                        this domain.
+                    </p>
+                </div>
+                <button
+                    class="btn btn-primary"
+                    id="addChatbotBtn"
+                    type="button"
+                >
+                    Add This Chatbot to Supported List
+                </button>
+            </section>
 
-<body>
-    <div class="container">
-        <header>
-            <h1>✨ Persian Formatter</h1>
-            <div class="toggle-wrapper">
-                <span class="toggle-label">فعال / غیرفعال</span>
-                <label class="switch">
-                    <input type="checkbox" id="enableExtension" checked>
-                    <span class="slider round"></span>
-                </label>
-            </div>
-        </header>
+            <nav class="tabs" role="tablist" aria-label="Toolkit tabs">
+                <button
+                    class="tab-btn is-active"
+                    id="tabConfigBtn"
+                    data-tab="config"
+                    role="tab"
+                    aria-selected="true"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .15 1.7 1.7 0 0 0-1 1.54V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.54 1.7 1.7 0 0 0-1-.15 1.7 1.7 0 0 0-1.87.34l-.06.06A2 2 0 1 1 2.34 16.8l.06-.06A1.7 1.7 0 0 0 2.6 15a1.7 1.7 0 0 0-.15-1 1.7 1.7 0 0 0-1.54-1H1a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.54-1 1.7 1.7 0 0 0 .15-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06A2 2 0 1 1 5.2 2.34l.06.06A1.7 1.7 0 0 0 7 2.6a1.7 1.7 0 0 0 1-.15h.1A1.7 1.7 0 0 0 9.64 1H10a2 2 0 1 1 4 0h.1a1.7 1.7 0 0 0 1.54 1 1.7 1.7 0 0 0 1 .15 1.7 1.7 0 0 0 1.87-.34l.06-.06A2 2 0 1 1 21.66 5.2l-.06.06A1.7 1.7 0 0 0 21.4 7c.1.32.15.66.15 1a1.7 1.7 0 0 0 1 1.54h.1a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1 1.46z"
+                        ></path>
+                    </svg>
+                    <span>Configuration</span>
+                </button>
 
-        <div class="section">
-            <label class="section-title">🖌️ فونت فارسی</label>
-            <select id="fontSelect">
-                <option value="Vazir">وزیر (پیش‌فرض)</option>
-                <option value="Sahel">ساحل</option>
-                <option value="IranSans">ایران‌سنس</option>
-                <option value="Tahoma">تحومه</option>
-                <option value="custom">فونت سفارشی...</option>
-            </select>
-            <div id="customFontBox" class="custom-font-box" style="display: none;">
-                <input type="text" id="customFontName" placeholder="نام فونت (مثل MyFont)">
-                <input type="text" id="customFontUrl" placeholder="آدرس CSS فونت (مثل https://.../font.css)">
-                <button id="applyCustomFont" class="secondary-btn">اعمال فونت سفارشی</button>
-            </div>
+                <button
+                    class="tab-btn"
+                    id="tabVaultBtn"
+                    data-tab="vault"
+                    role="tab"
+                    aria-selected="false"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <path d="M21 7H3"></path>
+                        <path d="M21 11H3"></path>
+                        <path d="M10 15H3"></path>
+                        <path d="M6 19H3"></path>
+                        <path d="M17.5 14.5 22 19l-2 2-4.5-4.5"></path>
+                        <circle cx="16" cy="16" r="3"></circle>
+                    </svg>
+                    <span>Prompt Vault</span>
+                </button>
+
+                <button
+                    class="tab-btn"
+                    id="tabToolkitBtn"
+                    data-tab="toolkit"
+                    role="tab"
+                    aria-selected="false"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <path d="M4 4h16v16H4z"></path>
+                        <path d="M9 9h6"></path>
+                        <path d="M9 13h6"></path>
+                        <path d="M9 17h4"></path>
+                    </svg>
+                    <span>Text Toolkits</span>
+                </button>
+            </nav>
+
+            <main class="panels">
+                <section
+                    class="panel is-active"
+                    id="panel-config"
+                    role="tabpanel"
+                >
+                    <div class="card-grid">
+                        <article class="glass-card">
+                            <h3>Core Toggles</h3>
+                            <label class="row">
+                                <span>Enable extension</span>
+                                <label class="switch">
+                                    <input
+                                        type="checkbox"
+                                        id="enableExtension"
+                                        checked
+                                    />
+                                    <span class="switch-track"></span>
+                                </label>
+                            </label>
+
+                            <label class="row">
+                                <span>Smart real-time RTL input</span>
+                                <label class="switch">
+                                    <input
+                                        type="checkbox"
+                                        id="realtimeInputRtl"
+                                        checked
+                                    />
+                                    <span class="switch-track"></span>
+                                </label>
+                            </label>
+                        </article>
+
+                        <article class="glass-card">
+                            <h3>Typography Mapping</h3>
+                            <label class="field">
+                                <span>Persian font</span>
+                                <select id="fontSelect">
+                                    <option value="Vazirmatn">Vazirmatn</option>
+                                    <option value="Sahel">Sahel</option>
+                                    <option value="IranSans">IranSans</option>
+                                    <option value="Tahoma">Tahoma</option>
+                                    <option value="custom">Custom…</option>
+                                </select>
+                            </label>
+
+                            <div class="field-group hidden" id="customFontBox">
+                                <input
+                                    type="text"
+                                    id="customFontName"
+                                    placeholder="Custom font family name"
+                                />
+                                <input
+                                    type="url"
+                                    id="customFontUrl"
+                                    placeholder="Font CSS URL"
+                                />
+                            </div>
+
+                            <label class="field">
+                                <span>Font size scale</span>
+                                <div class="range-wrap">
+                                    <input
+                                        type="range"
+                                        id="fontSizeSlider"
+                                        min="12"
+                                        max="28"
+                                        step="1"
+                                        value="16"
+                                    />
+                                    <output id="fontSizeValue">16px</output>
+                                </div>
+                            </label>
+                        </article>
+
+                        <article class="glass-card">
+                            <h3>English Text Font</h3>
+                            <label class="row">
+                                <span>Use separate English/LTR font</span>
+                                <label class="switch">
+                                    <input
+                                        type="checkbox"
+                                        id="englishFontEnabled"
+                                    />
+                                    <span class="switch-track"></span>
+                                </label>
+                            </label>
+
+                            <label class="field">
+                                <span>English font</span>
+                                <select id="englishFontSelect" disabled>
+                                    <option value="Inter">Inter</option>
+                                    <option value="Arial">Arial</option>
+                                    <option value="Roboto">Roboto</option>
+                                    <option value="'Segoe UI'">Segoe UI</option>
+                                    <option value="custom-eng">Custom…</option>
+                                </select>
+                            </label>
+
+                            <div
+                                class="field-group hidden"
+                                id="customEnglishFontBox"
+                            >
+                                <input
+                                    type="text"
+                                    id="customEnglishFontName"
+                                    placeholder="Custom English font family"
+                                />
+                                <input
+                                    type="url"
+                                    id="customEnglishFontUrl"
+                                    placeholder="English font CSS URL"
+                                />
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="action-row">
+                        <button
+                            class="btn btn-soft"
+                            id="resetBtn"
+                            type="button"
+                        >
+                            Reset
+                        </button>
+                        <button
+                            class="btn btn-primary"
+                            id="saveApplyBtn"
+                            type="button"
+                        >
+                            Save & Apply
+                        </button>
+                    </div>
+                </section>
+
+                <section
+                    class="panel"
+                    id="panel-vault"
+                    role="tabpanel"
+                    aria-hidden="true"
+                >
+                    <article class="glass-card">
+                        <h3>Add Prompt</h3>
+                        <label class="field">
+                            <span>Prompt title (optional)</span>
+                            <input
+                                type="text"
+                                id="promptTitle"
+                                placeholder="e.g. Persian formal translation"
+                            />
+                        </label>
+                        <label class="field">
+                            <span>Prompt content</span>
+                            <textarea
+                                id="promptContent"
+                                rows="4"
+                                placeholder="Write your reusable prompt here..."
+                            ></textarea>
+                        </label>
+                        <button
+                            class="btn btn-primary"
+                            id="savePromptBtn"
+                            type="button"
+                        >
+                            Save Prompt
+                        </button>
+                    </article>
+
+                    <article class="glass-card">
+                        <h3>Prompt Library</h3>
+                        <label class="field">
+                            <span>Search prompts</span>
+                            <input
+                                type="search"
+                                id="promptSearch"
+                                placeholder="Search by title or content"
+                            />
+                        </label>
+                        <div
+                            class="prompt-list"
+                            id="promptList"
+                            role="list"
+                        ></div>
+                    </article>
+                </section>
+
+                <section
+                    class="panel"
+                    id="panel-toolkit"
+                    role="tabpanel"
+                    aria-hidden="true"
+                >
+                    <article class="glass-card">
+                        <h3>Bi-Directional LaTeX Converter</h3>
+                        <label class="field">
+                            <span>Input</span>
+                            <textarea
+                                id="latexInput"
+                                rows="4"
+                                placeholder="Paste LaTeX or plain math text..."
+                            ></textarea>
+                        </label>
+                        <div class="action-row">
+                            <button
+                                class="btn btn-soft"
+                                id="latexToPlainBtn"
+                                type="button"
+                            >
+                                LaTeX → Plain
+                            </button>
+                            <button
+                                class="btn btn-soft"
+                                id="plainToLatexBtn"
+                                type="button"
+                            >
+                                Plain → LaTeX
+                            </button>
+                        </div>
+                        <label class="field">
+                            <span>Output</span>
+                            <textarea
+                                id="latexOutput"
+                                rows="4"
+                                readonly
+                            ></textarea>
+                        </label>
+                        <div class="action-row">
+                            <button
+                                class="btn btn-soft"
+                                id="copyLatexOutputBtn"
+                                type="button"
+                            >
+                                Copy Output
+                            </button>
+                            <button
+                                class="btn btn-soft"
+                                id="clearLatexBtn"
+                                type="button"
+                            >
+                                Clear
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="glass-card">
+                        <h3>Advanced Copy (Word + Markdown)</h3>
+                        <p class="subtext">
+                            Copy latest AI response as rich RTL HTML and
+                            Markdown plain text in one clipboard payload.
+                        </p>
+                        <button
+                            class="btn btn-primary"
+                            id="advancedCopyLatestBtn"
+                            type="button"
+                        >
+                            Advanced Copy Last AI Response
+                        </button>
+
+                        <label class="field top-gap">
+                            <span>Manual text source</span>
+                            <textarea
+                                id="manualCopyInput"
+                                rows="4"
+                                placeholder="Optional: write or paste text to copy as dual MIME"
+                            ></textarea>
+                        </label>
+                        <button
+                            class="btn btn-soft"
+                            id="advancedCopyManualBtn"
+                            type="button"
+                        >
+                            Advanced Copy Manual Text
+                        </button>
+                    </article>
+                </section>
+            </main>
+
+            <footer class="statusbar">
+                <span id="statusText">Ready</span>
+            </footer>
         </div>
 
-        <!-- بخش جدید: فونت انگلیسی -->
-        <div class="section">
-            <label class="section-title">🔤 فونت انگلیسی (اختیاری)</label>
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                <label class="switch" style="width: 36px; height: 20px;">
-                    <input type="checkbox" id="enableEnglishFont">
-                    <span class="slider round" style="width: 36px;"></span>
-                </label>
-                <span style="font-size: 0.8rem;">استفاده از فونت مجزا برای متن انگلیسی/کد</span>
-            </div>
-            <select id="englishFontSelect" disabled>
-                <option value="Arial">Arial</option>
-                <option value="Roboto">Roboto</option>
-                <option value="'Segoe UI'">Segoe UI</option>
-                <option value="'Courier New'">Courier New (برای کد)</option>
-                <option value="'Times New Roman'">Times New Roman</option>
-                <option value="custom-eng">فونت سفارشی انگلیسی...</option>
-            </select>
-            <div id="customEnglishFontBox" class="custom-font-box" style="display: none;">
-                <input type="text" id="customEnglishFontName" placeholder="نام فونت انگلیسی (مثل MyEngFont)">
-                <input type="text" id="customEnglishFontUrl" placeholder="آدرس CSS فونت انگلیسی">
-                <button id="applyCustomEnglishFont" class="secondary-btn">اعمال فونت سفارشی انگلیسی</button>
-            </div>
-        </div>
-
-        <div class="section">
-            <label class="section-title">🔠 اندازه فونت</label>
-            <div class="slider-container">
-                <span>12px</span>
-                <input type="range" id="fontSizeSlider" min="12" max="28" step="1" value="16">
-                <span id="fontSizeValue">16px</span>
-            </div>
-        </div>
-
-        <div class="section preview-section">
-            <label class="section-title">👀 پیش‌نمایش</label>
-            <div class="preview-box">
-                <p id="previewPersian">این یک متن فارسی است. This is English text.</p>
-            </div>
-        </div>
-
-        <div class="actions">
-            <button id="resetBtn" class="secondary-btn">↺ ریست به پیش‌فرض</button>
-            <button id="applyBtn" class="primary-btn">✓ اعمال روی صفحه</button>
-        </div>
-
-        <footer>
-            <span class="status" id="statusMsg">✅ آماده</span>
-        </footer>
-    </div>
-    <script src="popup.js"></script>
-</body>
-
+        <script src="popup.js"></script>
+    </body>
 </html>
