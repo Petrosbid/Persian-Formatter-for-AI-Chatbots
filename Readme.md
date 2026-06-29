@@ -1,117 +1,61 @@
-<div align="center">
+# Persian Formatter for AI Chatbots 🚀
 
-# 🌟 Persian Formatter for AI Chatbots 
-### افزونه تنظیم خودکار راست‌چین برای فارسی در چت‌بات‌ها
-
-[![Version](https://img.shields.io/badge/version-1.1-blue.svg?style=for-the-badge&logo=google-chrome)](https://github.com/yourusername/persian-formatter)
-[![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![CSS](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![License: MIT](https://img.shields.io/badge/License-MIT-success.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-
-**Read in:** [🇮🇷 فارسی](#-توضیحات-فارسی) | [🇺🇸 English](#-english-description)
-
-<br/>
-<p>
-  A powerful Chrome extension that seamlessly forces RTL direction and beautiful Persian typography for AI Chatbots.
-  <br>
-  اکستنشن قدرتمند کروم برای اصلاح بهم‌ریختگی متن‌های فارسی، تنظیم راست‌چین (RTL) و اعمال فونت‌های زیبای فارسی در چت‌بات‌های هوش مصنوعی.
-</p>
-
-</div>
+یک افزونه پیشرفته، مدرن و همه‌فن‌حریف برای مرورگر کروم (Manifest V3) که تجربه استفاده از چت‌بات‌های هوش مصنوعی را برای کاربران فارسی‌زبان کاملاً دگرگون می‌کند. پروژه **petrosbid/persian-formatter-for-ai-chatbots** پلتفرم‌های هوش مصنوعی را به یک محیط بومی، زیبا و کاملاً بهینه‌سازی‌شده برای زبان فارسی تبدیل می‌سازد.
 
 ---
 
-## 🇮🇷 توضیحات فارسی
+## ✨ ویژگی‌های کلیدی (Key Features)
 
-خسته شدید از اینکه متن‌های فارسی توی **ChatGPT** یا **Claude** به هم ریخته و چپ‌چین نمایش داده میشن؟ افزونه **Persian Formatter** با تشخیص خودکار متون فارسی (RTL)، تجربه گفتگوی شما با هوش مصنوعی را بی‌نقص می‌کند. 
+### ۱. پشتیبانی پویا از چت‌بات‌های جدید (Dynamic Site Matching)
+* **فراتر از پلتفرم‌های ثابت:** دیگر محدود به چت‌بات‌های هاردکد شده نیستید! اگر در پلتفرمی هستید که در لیست پیش‌فرض نیست، تنها با یک کلیک در پاپ‌آپ، افزونه را به صورت داینامیک روی سایت جدید فعال کنید.
+* **مجوزهای اختیاری (Optional Permissions):** پایداری کامل بر پایه معماری امن Manifest V3 بدون ایجاد دسترسی‌های غیرضروری روی تمام سایت‌ها.
 
-این افزونه بدون اینکه کدهای برنامه‌نویسی را به هم بریزد، متون فارسی را راست‌چین کرده و با فونت و سایز دلخواه شما به نمایش درمی‌آورد.
+### ۲. راست‌چین‌سازی خودکار و هوشمند باکس ورودی (Smart Bi-Directional Input)
+* **تایپ بدون دردسر:** سیستم با تکیه بر ویژگی `dir="auto"` و پردازش منظم متن، به محض تایپ اولین کاراکتر فارسی، جهت باکس ورودی (`textarea` یا `contenteditable`) را راست‌چین (RTL) و با تایپ متن انگلیسی چپ‌چین (LTR) می‌کند.
 
-### ✨ ویژگی‌های کلیدی (Features)
+### ۳. بانک سراسری پرامپت‌ها (Global Prompt Vault)
+* **ذخیره و مدیریت:** پرامپت‌های پرکاربرد خود را با نام دلخواه (اختیاری) ذخیره کنید.
+* **تزریق مستقیم (Instant Injection):** لیست پرامپت‌ها در تمام سایت‌های هوش مصنوعی همراه شماست؛ فقط با یک کلیک، پرامپت مورد نظر را مستقیماً به باکس ورودی چت‌بات فعال بفرستید.
+* **همگام‌سازی ابری:** ذخیره‌سازی روی `chrome.storage.sync` جهت دسترسی به پرامپت‌ها در تمامی دستگاه‌های متصل به حساب کروم شما.
 
-* **🌐 راست‌چین‌سازی هوشمند:** تشخیص خودکار حروف فارسی و اعمال `direction: rtl` فقط برای متن‌های فارسی.
-* **🛡️ محافظت از بلوک‌های کد (Code-Block Safe):** عدم تداخل با کدهای برنامه‌نویسی. کدهای شما کاملاً چپ‌چین و مرتب باقی می‌مانند!
-* **🎨 تایپوگرافی زیبا و سفارشی:** دارای فونت‌های پیش‌فرض (وزیر، ساحل، ایران‌سنس، تاهوما) و قابلیت افزودن **فونت سفارشی** با استفاده از آدرس CSS.
-* **🔤 فونت مجزا برای انگلیسی:** امکان تنظیم فونت جداگانه و اختصاصی برای کلمات انگلیسی موجود در متن.
-* **📏 تنظیم آنی سایز (Real-time):** تغییر سایز متن با استفاده از یک اسلایدر روان بدون نیاز به رفرش صفحه.
-* **⚡ بسیار سبک و بهینه:** نوشته شده با جاوااسکریپت خالص (Vanilla JS) بدون افت سرعت مرورگر.
+### ۴. تبدیل‌گر فرمول‌های ریاضی (LaTeX To Plain Text Converter)
+* **کپی ساده فرمول‌ها:** فرمول‌های پیچیده خروجی هوش مصنوعی را که با فرمت لاتک (`$...$` یا `$$...$$`) هستند، به متن‌های ساده (Plain Text) و نمادهای استاندارد یونیکود تبدیل کنید تا کپی و پیست کردن آن‌ها در نرم‌افزارهای فاقد پشتیبانی از LaTeX (مانند پیام‌رسان‌ها) به راحتی انجام شود.
 
-### 🤖 چت‌بات‌های پشتیبانی‌شده (Supported Platforms)
+### ۵. کپی هوشمند چندگانه (Advanced Multi-MIME Smart Copy)
+* **سازگاری کامل با Microsoft Word:** افزونه با ایجاد دکمه اختصاصی کپی پیشرفته، خروجی را هم‌زمان به دو فرمت در کلیپ‌بورد ذخیره می‌کند:
+  * **فرمت HTML الاستیک:** با حفظ کامل ساختار هدرها، فونت مپینگ (Vazirmatn) و جهت‌گیری صریح RTL تا هنگام پیست کردن در Word یا Google Docs چیدمان متن به هیچ وجه به هم نریزد.
+  * **فرمت Plain Markdown:** برای انتقال تمیز متن به برنامه‌های یادداشت‌برداری.
 
-این افزونه در حال حاضر از محبوب‌ترین ابزارهای هوش مصنوعی پشتیبانی می‌کند:
-
-| پلتفرم | وضعیت پشتیبانی | آدرس وب‌سایت |
-| :--- | :---: | :--- |
-| **ChatGPT** | ✅ | `chatgpt.com` / `chat.openai.com` |
-| **Claude AI** | ✅ | `claude.ai` |
-| **Google Gemini** | ✅ | `gemini.google.com` |
-| **DeepSeek** | ✅ | `chat.deepseek.com` |
-| **GitHub Copilot** | ✅ | `github.com/copilot` |
-| **Poe** | ✅ | `poe.com` |
-
-### 🛠️ آموزش نصب (Installation)
-
-از آنجایی که این افزونه هنوز در Chrome Web Store منتشر نشده است، می‌توانید آن را به صورت دستی (Unpacked) نصب کنید:
-
-1. ابتدا این مخزن را دانلود کرده (Download ZIP) و در یک پوشه اکسترکت کنید.
-2. مرورگر کروم را باز کنید و به آدرس `chrome://extensions/` بروید.
-3. در گوشه بالا سمت راست، گزینه **Developer mode** را فعال کنید.
-4. روی دکمه **Load unpacked** کلیک کنید.
-5. پوشه‌ای که فایل‌های افزونه (شامل `manifest.json`) در آن قرار دارد را انتخاب کنید.
-6. تمام! حالا می‌توانید وارد یکی از چت‌بات‌ها شوید و از روی نوار افزونه‌ها، تغییرات دلخواه را اعمال کنید.
+### ۶. رابط کاربری لوکس و مدرن گلس‌مورفیسم (Premium Tabbed UI)
+* **طراحی مدرن:** بازطراحی کامل با استایل شکیل شیشه‌ای (Glassmorphic) و پشتیبانی از جابه‌جایی روان بین ۳ تب مجزا:
+  * 🎨 **تنظیمات ظاهر (Appearance):** مدیریت فونت‌ها، سایز متن و پارامترهای استایل چت.
+  * 💾 **بانک پرامپت (Prompt Vault):** داشبورد مدیریت و جستجوی پرامپت‌های شخصی.
+  * 🛠️ **جعبه ابزار متن (Text Toolkits):** ابزارهای تبدیل فرمول و مدیریت کلیپ‌بورد.
+* **انیمیشن‌های نرم:** استفاده از ترنزیشن‌های حرکتی بهینه برای بهبود تجربه کاربری (Micro-interactions).
 
 ---
 
-## 🇺🇸 English Description
+## 🛠️ نحوه نصب و راه‌اندازی (Installation)
 
-Are you tired of messy, left-aligned Persian/Arabic text in **ChatGPT** or **Claude**? The **Persian Formatter** Chrome extension intelligently detects RTL languages and beautifully formats them, greatly improving your reading experience with AI chatbots.
+برای اجرای این افزونه به صورت محلی در حالت توسعه، مراحل زیر را دنبال کنید:
 
-It applies Right-to-Left (RTL) alignment and custom web fonts to Persian text while strictly protecting your code blocks!
-
-### ✨ Key Features
-
-* **🌐 Smart RTL Detection:** Automatically detects Persian characters and seamlessly applies RTL direction.
-* **🛡️ Code-Block Safe:** Intelligently skips `<pre>`, `<code>`, and markdown code blocks. Your code remains LTR and perfectly structured!
-* **🎨 Custom Web Fonts:** Choose from beautiful bundled fonts (Vazir, Sahel, IranSans, Tahoma) or inject your own **Custom CSS Font URL**.
-* **🔤 Separate English Font:** Apply a completely distinct font (e.g., Courier New, Roboto) specifically for English text and code elements.
-* **📏 Real-Time Resizing:** Easily scale font sizes up or down using an interactive slider.
-* **⚡ Lightweight & Fast:** Built with vanilla JavaScript via MutationObserver to format dynamically streaming text without performance drops.
-
-### 🤖 Supported Chatbots
-
-| Platform | Status | URL |
-| :--- | :---: | :--- |
-| **ChatGPT** | ✅ | `chatgpt.com` / `chat.openai.com` |
-| **Claude AI** | ✅ | `claude.ai` |
-| **Google Gemini** | ✅ | `gemini.google.com` |
-| **DeepSeek** | ✅ | `chat.deepseek.com` |
-| **GitHub Copilot** | ✅ | `github.com/copilot` |
-| **Poe** | ✅ | `poe.com` |
-
-### 🛠️ How to Install (Developer Mode)
-
-To install this extension locally on Google Chrome or Edge:
-
-1. Clone or **Download ZIP** this repository and extract it to a folder.
-2. Open Chrome and navigate to `chrome://extensions/`.
-3. Enable **Developer mode** (toggle switch in the top right corner).
-4. Click on the **Load unpacked** button.
-5. Select the extracted folder (the one containing `manifest.json`).
-6. You're all set! Pin the extension to your toolbar, visit any supported chatbot, and tweak the settings to your liking.
+1. این مخزن را شبیه‌سازی (Clone) کنید یا فایل ZIP آن را دانلود و استخراج نمایید.
+2. مرورگر گوگل کروم را باز کرده و به آدرس `chrome://extensions` بروید.
+3. در سمت راست بالا، حالت توسعه‌دهنده (**Developer mode**) را فعال کنید.
+4. روی دکمه **Load unpacked** در سمت چپ بالا کلیک کنید.
+5. پوشه اصلی پروژه (که شامل فایل `manifest.json` است) را انتخاب کنید.
+6. افزونه با موفقیت نصب شد! حالا می‌توانید آن را در نوار ابزار مرورگر خود پین کنید.
 
 ---
 
-## 💻 Tech Stack
+## 💻 تکنولوژی‌های به‌کاررفته (Tech Stack)
 
-* **Core:** HTML5, CSS3, Vanilla JavaScript
-* **Manifest:** Manifest V3
-* **Storage:** Chrome Sync Storage API
-* **DOM Manipulation:** MutationObserver API (for streaming responses)
+* **JavaScript (Vanilla JS):** استفاده از اسکریپت‌های بومی و بهینه بدون وابستگی به فریم‌ورک‌های سنگین برای Content Scripts و Popup.
+* **CSS3:** طراحی گلس‌مورفیسم، متغیرهای CSS و انیمیشن‌های پیشرفته با Cubic-Bezier.
+* **Chrome Extension API:** بهره‌گیری از `chrome.storage`, `chrome.scripting`, و `chrome.permissions` بر پایه **Manifest V3**.
 
-## 🤝 مشارکت (Contributing)
-خوشحال می‌شویم اگر در توسعه این افزونه مشارکت کنید! اگر باگ پیدا کردید یا ایده جدیدی دارید، لطفاً یک **Issue** باز کنید یا **Pull Request** بفرستید.
-<br>
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+---
 
-## 📜 لایسنس (License)
-این پروژه تحت لایسنس [MIT](https://opensource.org/licenses/MIT) منتشر شده است. استفاده، تغییر و توزیع آن برای همه آزاد است.
+## 📄 لایسنس (License)
+
+این پروژه تحت لایسنس MIT منتشر شده است. برای اطلاعات بیشتر فایل `LICENSE` را مطالعه کنید.
